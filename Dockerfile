@@ -1,7 +1,8 @@
-FROM node:18 AS base
+FROM node:18 AS build
 WORKDIR /usr/src/app
-COPY . .
+COPY package*.json ./
 RUN npm install
+COPY src tsconfig.json ./
 RUN npm run build
 
 
@@ -10,6 +11,6 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 RUN npm install --only=production
-COPY --from=base /usr/src/app/dist ./
+COPY --from=build /usr/src/app/dist ./
 
 CMD [ "node", "./index.js" ]

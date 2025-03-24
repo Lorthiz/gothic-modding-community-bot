@@ -11,3 +11,8 @@ export const getArgs = (message: Message) => {
     const firstEmptySpace = message.content.indexOf(" ");
     return message.content.substring(firstEmptySpace + 1)
 }
+
+export const sendReply = (message: Message, reply: string) => {
+    if (!message.channel.isSendable()) return;
+   message.channel.send(reply);
+}

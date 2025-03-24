@@ -20,7 +20,9 @@ npm install
 npm run start
 ```
 
-But remember you need a valid `BOT_TOKEN` in your `.env` file!
+> [!IMPORTANT]  
+> But remember you need a valid `BOT_TOKEN` in your `.env` file!
+
 
 ## Commands
 
@@ -50,7 +52,7 @@ Using `docker run`:
 ```shell
 docker run \
     -e BOT_TOKEN="<YOUR_TOKEN>" \
-  --restart unless-stopped \
+    --restart unless-stopped \
     lorthiz/gothic-modding-community-bot:latest
 ```
 Using `docker compose`:
